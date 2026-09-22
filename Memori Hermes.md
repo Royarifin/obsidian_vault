@@ -38,8 +38,9 @@ Dibuat otomatis oleh Hermes di server, lalu di-push ke GitHub.
 
 ## Status & Catatan Penting
 
-- **23 Sep 2026:** Sinkron server → GitHub terverifikasi jalan (deploy key valid, repo up to date)
-- **Perlu dicek:** belum ada commit baru dari Mac sejak 19 Sep 2026 → kemungkinan plugin Obsidian Git di Mac belum jalan / belum nge-push. Ini yang masih perlu dibereskan.
+- **23 Sep 2026:** Sinkron server → GitHub terverifikasi jalan (deploy key valid, repo up to date). Note ini berhasil di-push dari server.
+- **23 Sep 2026:** Commit dari Mac masuk juga (`vault backup: 2026-09-23 00:13:44`) → **plugin Obsidian Git di Mac sudah jalan** dan bisa nge-push ke GitHub.
+- **Sisa PR:** belum ada note dari Mac yang masuk selain `Welcome.md`. Perlu diuji dengan membuat note baru di Mac.
 - Memori internal Hermes sendiri disimpan di `~/.hermes/` di server, **bukan** di vault ini. Catatan ini hanya ringkasan manual.
 
 ## Ide Berikutnya
