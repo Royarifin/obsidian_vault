@@ -115,11 +115,19 @@ Kalau tidak mau pakai password sama sekali lagi (lebih aman), bisa ganti ke kunc
 
 Hermes sekarang memakai 9router sebagai **model default**, jadi bisa pakai Claude gratis dari akun Kiro.
 
+**Model default saat ini:** `kiro_combo` — routing otomatis yang milih model terbaik untuk tiap request (Haiku untuk request sederhana, Sonnet untuk yang kompleks).
+
 **Cara pakai:**
-- Di dalam sesi Hermes, ketik `/model 9r` → ganti ke Claude lewat 9router.
+- Di dalam sesi Hermes, ketik `/model 9r` → ganti ke Claude Sonnet 4.5 (fixed, tidak otomatis).
 - Atau jalankan sekali langsung: `hermes chat -q "..." -m "kr/claude-sonnet-4.5" --provider ninerouter`
 
-**Model yang tersedia lewat 9router** (dari akun Kiro): `kr/claude-sonnet-4.5`, `kr/claude-sonnet-4`, `kr/claude-haiku-4.5`, `kr/glm-5`, `kr/qwen3-coder-next`, `kr/deepseek-3.2`, `kr/minimax-m2.5` — plus varian `-thinking` dan `-agentic`.
+**Model yang tersedia lewat 9router** (dari akun Kiro): 
+- `kiro_combo` — routing otomatis (default)
+- `kr/claude-sonnet-4.5`, `kr/claude-sonnet-4`, `kr/claude-haiku-4.5`
+- `kr/glm-5`, `kr/qwen3-coder-next`, `kr/deepseek-3.2`, `kr/minimax-m2.5`
+- Semua model di atas ada varian `-thinking` dan `-agentic`
+
+**Catatan:** Kiro belum punya Claude 5.5 family (Opus/Sonnet/Haiku 5.5) per 11 Oktober 2026. Yang tertinggi masih Sonnet 4.5.
 
 **Kalau 9router mati atau error:** Hermes jadi tidak bisa jawab, karena default-nya mengarah ke sana. Cara cepat kembali ke OpenRouter:
 ```bash
