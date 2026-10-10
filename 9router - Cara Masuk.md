@@ -91,6 +91,26 @@ sudo systemctl restart 9router                              # restart kalau perl
 
 ---
 
+## Keamanan SSH (fail2ban) — 11 Oktober 2026
+
+VPS kamu banyak diserang bot yang coba menebak password SSH (3.277 percobaan gagal dalam 24 jam). Sudah dipasang **fail2ban** untuk menanganinya:
+
+- Salah password **5 kali** dalam **10 menit** → IP itu diblokir **1 jam** otomatis.
+- Blokirnya berlaku di level firewall (nftables), bukan cuma dicatat.
+- Sudah otomatis aktif saat VPS nyala. **Cara login kamu tidak berubah** — tetap pakai password seperti biasa.
+- IP Mac kamu (`182.10.97.224`) dan localhost masuk daftar putih, jadi tidak akan pernah kena blokir.
+
+**Kalau tiba-tiba tidak bisa SSH sama sekali**, kemungkinan IP rumah kamu berubah dan kena blokir. Hubungi Hermes — bisa dibuka. Bisa juga cek dari konsol VPS:
+
+```bash
+sudo fail2ban-client status sshd                 # lihat IP yang sedang diblokir
+sudo fail2ban-client set sshd unbanip <IP>       # buka blokir satu IP
+```
+
+Kalau tidak mau pakai password sama sekali lagi (lebih aman), bisa ganti ke kunci SSH — tanya Hermes.
+
+---
+
 ## Info teknis (untuk arsip)
 
 - Terinstall: `9router v0.5.99` (npm global, `/usr/bin/9router`)
