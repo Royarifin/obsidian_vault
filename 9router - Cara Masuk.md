@@ -111,6 +111,29 @@ Kalau tidak mau pakai password sama sekali lagi (lebih aman), bisa ganti ke kunc
 
 ---
 
+## Menyambungkan Hermes ke 9router — 11 Oktober 2026
+
+Hermes sekarang memakai 9router sebagai **model default**, jadi bisa pakai Claude gratis dari akun Kiro.
+
+**Cara pakai:**
+- Di dalam sesi Hermes, ketik `/model 9r` → ganti ke Claude lewat 9router.
+- Atau jalankan sekali langsung: `hermes chat -q "..." -m "kr/claude-sonnet-4.5" --provider ninerouter`
+
+**Model yang tersedia lewat 9router** (dari akun Kiro): `kr/claude-sonnet-4.5`, `kr/claude-sonnet-4`, `kr/claude-haiku-4.5`, `kr/glm-5`, `kr/qwen3-coder-next`, `kr/deepseek-3.2`, `kr/minimax-m2.5` — plus varian `-thinking` dan `-agentic`.
+
+**Kalau 9router mati atau error:** Hermes jadi tidak bisa jawab, karena default-nya mengarah ke sana. Cara cepat kembali ke OpenRouter:
+```bash
+hermes config set model.provider openrouter
+hermes config set model.default deepseek/deepseek-v4.1-flash
+```
+
+**Catatan teknis:**
+- Provider terdaftar sebagai `ninerouter` di `~/.hermes/config.yaml`
+- API key 9router disimpan di `~/.hermes/.env` sebagai `NINEROUTER_API_KEY` (bukan di config.yaml)
+- Jangan edit `~/.hermes/config.yaml` manual — selalu pakai `hermes config set`
+
+---
+
 ## Info teknis (untuk arsip)
 
 - Terinstall: `9router v0.5.99` (npm global, `/usr/bin/9router`)
