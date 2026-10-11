@@ -31,6 +31,24 @@ ssh ubuntu@129.226.83.27
 
 ## 2. Gallery aset Adobe Stock (paling sering kamu pakai)
 
+### 2A. Buka langsung (HTTPS, tanpa terminal) — SUDAH JALAN
+Alamat: **https://judgment-kits-faqs-grace.trycloudflare.com**
+Login: user `roy`, password: `cat ~/stock-web/auth.txt` di VPS.
+Catatan: alamat ini berubah kalau service `cftunnel` direstart / VPS reboot.
+Alamat terbaru selalu di: `cat ~/stock-web/public_url.txt`
+
+### 2A-lama. Via port 8080 langsung (butuh buka security group)
+Alamat: **http://129.226.83.27:8080**
+Login: user **`roy`** — password ada di VPS: `cat ~/stock-web/auth.txt`
+
+Syarat sekali saja: port **8080** harus dibuka di security group Tencent Cloud
+(console → 云服务器/CVM → 实例 → 安全组 → 入站规则 → tambah TCP:8080, 来源 0.0.0.0/0).
+Status 11 Okt 2026: **belum dibuka**, jadi untuk sekarang pakai cara 2B dulu.
+
+Ganti password: edit `~/stock-web/auth.txt` (format `user:password`) lalu
+`sudo systemctl restart stockweb`.
+
+### 2B. Lewat SSH tunnel (selalu bisa, tanpa buka port)
 **Di VPS:** tidak perlu ngapa-ngapain. Gallery nyala otomatis sebagai service `stockweb`.
 
 **Di Mac:**
